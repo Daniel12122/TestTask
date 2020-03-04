@@ -6,12 +6,12 @@ import org.testng.annotations.Test;
 import page.SearchPage;
 
 public class TestOne extends BaseTest {
-    private String randomWord = RandomStringUtils.randomAlphabetic(5);
+
     @Test
-    public void punchInOutTest() {
+    public void printFirstLinkTitleFromSearchResultTest() {
         SearchPage searchPage = new SearchPage();
         searchPage
-                .searchWord(randomWord)
+                .searchWord(RandomStringUtils.randomAlphabetic(5))
                 .printFirstLinkText();
     }
 }

@@ -11,3 +11,6 @@ R
 "src/main/java/page/SearchPage.java,4\7\47681921cfbea953b0f5462539e16fd9bc2ebf2e
 P
  src/main/java/base/BaseTest.java,a\1\a1409c3348e128f6b8de3c422846c43706eff0f8
+:
+
+MyWork.iml,a\9\a94241effab569d56597d24ee28601d61f846173
