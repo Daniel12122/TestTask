@@ -3,12 +3,9 @@ package base;
 import manager.DriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.LoadableComponent;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static org.testng.AssertJUnit.assertTrue;
-
-public class BasePage extends LoadableComponent {
+public class BasePage implements LoadableComponent{
 
     public final WebDriverWait wait;
     public WebDriver driver = DriverManager.getInstance().getDriver();
@@ -20,12 +17,7 @@ public class BasePage extends LoadableComponent {
     }
 
     @Override
-    protected void load() {
-        this.driver.get(baseURL);
-    }
-
-    @Override
-    protected void isLoaded() throws Error {
-        assertTrue("HomePage is not loaded!", driver.getCurrentUrl().contains(baseURL));
+    public boolean isLoaded() {
+        return false;
     }
 }
