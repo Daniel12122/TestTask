@@ -37,10 +37,6 @@ public class SearchPage extends BasePage {
 
     @Override
     public boolean isLoaded() {
-        if(searchNameInput.isDisplayed()){
-            return true;
-        }else {
-            return false;
-        }
+        return searchNameInput.isDisplayed();
     }
 }
