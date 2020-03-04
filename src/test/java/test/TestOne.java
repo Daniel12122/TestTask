@@ -9,8 +9,7 @@ public class TestOne extends BaseTest {
 
     @Test
     public void printFirstLinkTitleFromSearchResultTest() {
-        SearchPage searchPage = new SearchPage();
-        searchPage
+        new SearchPage()
                 .searchWord(RandomStringUtils.randomAlphabetic(5))
                 .printFirstLinkText();
     }

@@ -1,15 +1,13 @@
 package page;
 
 import base.BasePage;
-import Loggers.Log;
+import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+@Slf4j
 public class SearchPage extends BasePage {
-
-//    private static final Logger log = Logger.getLogger(SearchPage.class);
-    Log myLog = new Log("log.txt");
 
     @FindBy(css = ".gLFyf")
     private WebElement searchNameInput;
@@ -21,19 +19,28 @@ public class SearchPage extends BasePage {
     private WebElement firstLink;
 
     public SearchPage searchWord(String name) {
-        myLog.logger.info("Open Google");
+        log.info("Open Google");
         wait.until(ExpectedConditions.elementToBeClickable(searchNameInput));
         searchNameInput.sendKeys(name);
-        myLog.logger.info("Enter random word");
+        log.info("Enter random word");
         wait.until(ExpectedConditions.elementToBeClickable(btnSearch));
         btnSearch.click();
-        myLog.logger.info("Search random word");
+        log.info("Search random word");
         return this;
     }
     public SearchPage printFirstLinkText(){
         wait.until(ExpectedConditions.visibilityOf(firstLink));
         String firstLinkText = firstLink.getText();
-        myLog.logger.info("First link name is: " + firstLinkText);
+        log.info("First link name is: " + firstLinkText);
         return this;
+    }
+
+    @Override
+    public boolean isLoaded() {
+        if(searchNameInput.isDisplayed()){
+            return true;
+        }else {
+            return false;
+        }
     }
 }
